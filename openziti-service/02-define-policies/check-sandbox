@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+checkZitiResource(){
+    local type=$1
+    local name=$2
+    local count=$(
+        ziti edge list "$type" "name=\"${name}\"" --output-json \
+        | jq '.data|length'
+    )
+    if [[ $count -eq 1 ]]
+    then
+        return 0
+    else
+        fail-message "found $count $type named '$name', expected 1"
+    fi
+}
+
+checkZitiResource edge-router-policies "default"
+checkZitiResource service-edge-router-policies "default"
+checkZitiResource service-policies "greeting-services-providers"
+checkZitiResource service-policies "greeting-services-consumers"

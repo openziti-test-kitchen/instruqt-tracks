@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+checkZitiResource(){
+    local type=$1
+    local name=$2
+    local count=$(
+        ziti edge list "$type" "name=\"${name}\"" --output-json \
+        | jq '.data|length'
+    )
+    if [[ $count -eq 1 ]]
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
+checkZitiResource edge-router-policies default \
+|| ziti edge create edge-router-policy "default" \
+  --edge-router-roles '#all' \
+  --identity-roles '#all'
+
+checkZitiResource service-edge-router-policies default \
+|| ziti edge create service-edge-router-policy "default" \
+  --edge-router-roles '#all' \
+  --service-roles '#all'
+
+checkZitiResource service-policies "greeting-services-providers" \
+|| ziti edge create service-policy "greeting-services-providers" Bind \
+  --service-roles '#greeting-services' \
+  --identity-roles '#greeters'
+
+checkZitiResource service-policies "greeting-services-consumers" \
+|| ziti edge create service-policy "greeting-services-consumers" Dial \
+  --service-roles '#greeting-services' \
+  --identity-roles '#members'

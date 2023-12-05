@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+checkZitiResource(){
+    local type=$1
+    local name=$2
+    local count=$(
+        ziti edge list "$type" "name=\"${name}\"" --output-json \
+        | jq '.data|length'
+    )
+    if [[ $count -eq 1 ]]
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
+checkZitiResource identities "Alice" \
+|| ziti edge create identity "Alice" \
+  --jwt-output-file /tmp/alice.jwt \
+  --role-attributes greeters
+
+
+checkZitiResource identities "Bob" \
+|| ziti edge create identity "Bob" \
+  --jwt-output-file /tmp/bob.jwt \
+  --role-attributes members
