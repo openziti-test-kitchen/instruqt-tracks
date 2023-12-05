@@ -5,9 +5,9 @@ containers:
   image: docker.io/openziti/ziti-cli:release-next  # use prerelease until IP SAN bugfix is released
   cmd: >
     edge quickstart
-    --ctrl-address=ziti-quickstart
+    --ctrl-address=quickstart
     --ctrl-port=1280
-    --router-address=ziti-quickstart
+    --router-address=quickstart
     --router-port=3022
   ports:
   - 1280
