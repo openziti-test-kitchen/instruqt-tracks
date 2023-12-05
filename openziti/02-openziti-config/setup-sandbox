@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+cd ~/ziti
+git fetch origin
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git pull --no-ff origin prototype-zac-xweb-handler
+
+snap install go --classic
+go mod download
+mkdir ~/ziti/build
+
+cd /tmp
+curl -sSLfO https://1a7o551lzw00.in.staging.zrok.io/zrok-static/zac.zip
+unzip ./zac.zip
+
+set-workdir ~/ziti/quickstart/docker/minimal

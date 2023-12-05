@@ -1,0 +1,19 @@
+slug: openziti
+id: r9yeozgilqwe
+title: OpenZiti
+description: |-
+  This track demonstrates running a local OpenZiti quickstart network and managing its configuration.
+icon: https://landing.openziti.io/wp-content/uploads/2023/08/justthez.png
+tags: []
+owner: openziti
+developers:
+- todd@instruqt.com
+show_timer: true
+timelimit: 1800
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "11775794758793884842"

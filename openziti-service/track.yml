@@ -1,0 +1,18 @@
+slug: openziti-service
+id: gh4hrzj5vyid
+title: OpenZiti Service
+teaser: Create a Service with the CLI
+description: Create an OpenZiti Service with the ziti CLI. A local OpenZiti network
+  is running in the background. Log in with the CLI to get started!
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags: []
+owner: openziti
+developers:
+- kenneth.bingham@netfoundry.io
+lab_config:
+  overlay: false
+  width: 33
+  position: right
+  feedback_recap_enabled: true
+  loadingMessages: true
+checksum: "2194667487281205756"

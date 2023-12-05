@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euxo pipefail
+
+source ~/.bashrc
+
+docker compose --file ~/ziti/quickstart/docker/minimal/compose.yml up --detach
+
+until docker compose --file ~/ziti/quickstart/docker/minimal/compose.yml logs | grep -Eq 'handler_edge_ctrl.*finished sychronizing api sessions'
+do
+    echo "Waiting for router to finish synchronizing"
+    sleep 1
+done
+
+ziti edge login 127.0.0.1:1280 -u admin -p admin -y

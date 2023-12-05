@@ -1,0 +1,15 @@
+#!/bin/bash
+set -euxo pipefail
+
+if ! docker compose --file ~/ziti/quickstart/docker/minimal/compose.yml ps --format '{{.Names}}' \
+    | grep -q minimal-quickstart
+then
+    fail-message "OpenZiti is not running"
+fi
+
+if ! [[ -s ~/.config/ziti/ziti-cli.json ]]
+then
+    fail-message "OpenZiti CLI is not logged in"
+fi
+
+

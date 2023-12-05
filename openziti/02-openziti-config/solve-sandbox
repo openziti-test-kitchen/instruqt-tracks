@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+set -o errexit
+set -o nounset
+set -o pipefail
+
+cat <<EOF >> ~/ziti/quickstart/docker/minimal/persistent/ctrl.yaml
+    - binding: zac
+      options:
+        location: /tmp/zac
+EOF

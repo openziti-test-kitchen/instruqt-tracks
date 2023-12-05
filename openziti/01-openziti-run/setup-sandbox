@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+
+echo "Running challenge setup script"
+git clone https://github.com/openziti/ziti.git
+git checkout minimal-docker-quickstart
+
+curl -sSLf https://get.openziti.io/install.bash \
+| bash -s openziti
+
+# the remainder of the script runs after bootstrapping to avoid a race to write ~/.bashrc
+while [ ! -f /opt/instruqt/bootstrap/host-bootstrap-completed ]
+do
+    echo "Waiting for Instruqt to finish booting the virtual machine"
+    sleep 1
+done
+echo "export ZITI_QUICK_TAG=release-next" >> ~/.bashrc
+source ~/.bashrc
+cd ~/ziti/quickstart/docker/minimal
+docker compose pull
+set-workdir ~/ziti/quickstart/docker/minimal

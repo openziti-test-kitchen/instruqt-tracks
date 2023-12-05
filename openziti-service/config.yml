@@ -1,0 +1,22 @@
+version: "3"
+containers:
+- name: quickstart
+  # image: docker.io/openziti/ziti-cli:0.31.0
+  image: docker.io/openziti/ziti-cli:release-next  # use prerelease until IP SAN bugfix is released
+  cmd: >
+    edge quickstart
+    --ctrl-address=ziti-quickstart
+    --ctrl-port=1280
+    --router-address=ziti-quickstart
+    --router-port=3022
+  ports:
+  - 1280
+  - 3022
+  memory: 512
+  environment:
+    PFXLOG_NO_JSON: "true"
+- name: sandbox
+  image: docker.io/openziti/ziti-cli:release-next  # use prerelease until IP SAN bugfix is released
+  # image: ubuntu:jammy
+  entrypoint: ''
+  shell: /bin/bash
