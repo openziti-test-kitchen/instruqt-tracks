@@ -20,3 +20,7 @@ containers:
   # image: ubuntu:jammy
   entrypoint: ''
   shell: /bin/bash
+- name: hello
+  image: docker.io/openziti/hello-world:latest
+  ports:
+  - 8000

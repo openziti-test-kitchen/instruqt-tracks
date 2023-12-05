@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+ziti edge login quickstart:1280 -u admin -p admin -y
+
+ziti edge show config "hello-intercept" &>/dev/null \
+|| ziti edge create config "hello-intercept" intercept.v1 \
+  '{"protocols":["tcp"],"addresses":["hello.private"], "portRanges":[{"low":80, "high":80}]}'
+
+ziti edge show config "hello-host" &>/dev/null \
+|| ziti edge create config "hello-host" host.v1 \
+  '{"protocol":"tcp", "address":"hello","port":8000}'
+
+[[ 
+  $(ziti edge list services 'name="hello-service"' --output-json | jq '.data|length') -eq 1 
+]] \
+|| ziti edge create service "hello-service" \
+  --configs hello-intercept,hello-host \
+  --role-attributes greeting-services

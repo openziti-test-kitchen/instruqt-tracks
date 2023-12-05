@@ -11,5 +11,3 @@ if ! [[ -s ~/.config/ziti/ziti-cli.json ]]
 then
     fail-message "OpenZiti CLI is not logged in"
 fi
-
-

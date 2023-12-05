@@ -1,0 +1,19 @@
+version: "3"
+containers:
+- name: quickstart
+  image: docker.io/openziti/ziti-cli:release-next
+  cmd: |
+    edge quickstart --ctrl-address=quickstart --ctrl-port=1280 --router-address=quickstart --router-port=3022
+  ports:
+  - 1280
+  - 3022
+  environment:
+    PFXLOG_NO_JSON: "true"
+  memory: 512
+- name: sandbox
+  image: docker.io/openziti/ziti-cli:release-next
+  shell: /bin/bash
+- name: hello
+  image: docker.io/openziti/hello-world:latest
+  ports:
+  - 8000
