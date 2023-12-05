@@ -17,3 +17,8 @@ containers:
   image: docker.io/openziti/hello-world:latest
   ports:
   - 8000
+virtualmachines:
+- name: bob
+  image: ubuntu-os-cloud/ubuntu-2204-lts
+  shell: /bin/bash
+  machine_type: n1-standard-1

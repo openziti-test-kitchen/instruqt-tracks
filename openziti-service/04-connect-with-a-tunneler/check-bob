@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+MKTEMP=/tmp/tmp.zet-dumps.$(date -Is);
+mkdir -m0777 $MKTEMP;
+ziti-edge-tunnel dump -p $MKTEMP;
+
+if ! [[ -s ${MKTEMP}/Bob.ziti ]]
+then
+    fail-message "Identity 'Bob' not found in tunneler"
+fi

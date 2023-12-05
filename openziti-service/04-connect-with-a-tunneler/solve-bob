@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-agent variable set BOB_JWT "$(</tmp/bob.jwt)"
+ziti-edge-tunnel add --jwt "$(< /tmp/bob.jwt)" --identity Bob

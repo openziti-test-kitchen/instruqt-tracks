@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+curl -sSLf https://get.openziti.io/tun/scripts/install-ubuntu.bash | bash
+
+sudo systemctl enable --now ziti-edge-tunnel.service

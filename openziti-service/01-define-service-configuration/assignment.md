@@ -2,12 +2,12 @@
 slug: define-service-configuration
 id: jacnp1s2n0rp
 type: challenge
-title: Define Service Configuration
+title: Define Service
 teaser: Configure a Service's dial and bind parameters.
 notes:
 - type: text
   contents: |
-    Log in and create two tunneling configs and use them to compose an OpenZiti Service.
+    Create two tunneling configs and use them to define an OpenZiti Service.
 tabs:
 - title: Shell
   type: terminal

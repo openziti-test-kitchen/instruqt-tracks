@@ -4,4 +4,4 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-agent variable set BOB_JWT "$(</tmp/bob.jwt)"
+agent variable get --sandbox.id sandbox BOB_JWT | tee /tmp/bob.jwt

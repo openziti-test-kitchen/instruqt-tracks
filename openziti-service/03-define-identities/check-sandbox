@@ -19,5 +19,4 @@ checkZitiResource(){
     fi
 }
 
-checkZitiResource identities "Alice"
 checkZitiResource identities "Bob"
