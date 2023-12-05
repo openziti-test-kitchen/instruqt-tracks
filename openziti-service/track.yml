@@ -2,9 +2,9 @@ slug: openziti-service
 id: gh4hrzj5vyid
 title: OpenZiti Service
 teaser: Create a Service with the CLI
-description: Create an OpenZiti Service with the ziti CLI. A local OpenZiti network
-  is running in the background. Log in with the CLI to get started!
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+description: Create an OpenZiti Service with the ziti CLI. A OpenZiti network is running
+  in the background. Log in with the CLI to get started!
+icon: https://landing.openziti.io/wp-content/uploads/2023/08/justthez.png
 tags: []
 owner: openziti
 developers:
@@ -15,4 +15,4 @@ lab_config:
   position: right
   feedback_recap_enabled: true
   loadingMessages: true
-checksum: "6305209096674528931"
+checksum: "8996184676378922855"
