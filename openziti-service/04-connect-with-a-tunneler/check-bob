@@ -12,3 +12,5 @@ if ! [[ -s ${MKTEMP}/Bob.ziti ]]
 then
     fail-message "Identity 'Bob' not found in tunneler"
 fi
+
+curl -sf http://hello.private &>/dev/null
