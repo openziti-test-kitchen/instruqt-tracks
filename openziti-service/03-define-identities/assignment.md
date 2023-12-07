@@ -25,9 +25,17 @@ ziti edge update identity "quickstart-router" \
   --role-attributes greeters
 ```
 
-## Create an Identity to Access the Service
+## Verify Bind Permission
 
-Identities with role `#members` are allowed by Dial Service Policy to connect to the Service with the address specified in the `intercept.v1` config (`hello.private:80`).
+Confirm that the router has `Bind: Y`, i.e. permission to bind the hello Service.
+
+```bash
+ziti edge policy-advisor identities --quiet quickstart-router
+```
+
+## Create Bob
+
+Bob needs an Identity so he can access the hello Service. Identities with role `#members` are allowed by Dial Service Policy to connect to the Service with the address specified in the `intercept.v1` config (`hello.private:80`).
 
 ```bash
 ziti edge create identity "Bob" \

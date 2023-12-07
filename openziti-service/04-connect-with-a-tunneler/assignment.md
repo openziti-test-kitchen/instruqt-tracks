@@ -19,9 +19,9 @@ difficulty: basic
 timelimit: 600
 ---
 
-The OpenZiti Tunneler (`ziti-edge-tunnel`) has been pre-installed. When an Identity is added, it will this host to access any allowed Services by adding their addresses to Ziti DNS.
+The OpenZiti Tunneler (`ziti-edge-tunnel`) has been pre-installed. When an Identity is added, it will configure Bob's computer to access any allowed Services by adding their addresses to Ziti DNS.
 
-## Connect
+## Too Soon
 
 Note that the hello Service is not yet available.
 
@@ -35,7 +35,7 @@ curl -m1 http://hello.private
 ziti-edge-tunnel add --identity Bob --jwt "[[ Instruqt-Var key="BOB_JWT" hostname="alice" ]]"
 ```
 
-## Hello
+## Welcome, Bob
 
 ```bash
 curl http://hello.private
