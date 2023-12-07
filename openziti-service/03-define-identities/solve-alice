@@ -23,3 +23,6 @@ checkZitiResource identities "Bob" \
 || ziti edge create identity "Bob" \
   --jwt-output-file /tmp/bob.jwt \
   --role-attributes members
+
+ziti edge update identity "quickstart-router" \
+  --role-attributes greeters

@@ -6,13 +6,12 @@ title: Define Identities
 teaser: Define the OpenZiti Identities that will use the Service.
 notes:
 - type: text
-  contents: Great! You've defined policies allowing role 'greeters' to provide the
-    hello Service, and role 'members' to consume it. Now let's assign those roles
-    to Identities.
+  contents: |
+    You've defined policies allowing role 'greeters' to host the hello Service, and role 'members' to consume it. Now let's assign those roles to the appropriate Identities. Alice will delegate hosting the Service to the router that is already running in the environment by assigning role "greeters." Bob is a new member that will consume the Service.
 tabs:
-- title: Shell
+- title: Alice
   type: terminal
-  hostname: sandbox
+  hostname: alice
 difficulty: basic
 timelimit: 600
 ---
@@ -36,4 +35,4 @@ ziti edge create identity "Bob" \
   --role-attributes members
 ```
 
-No need to save the JWT enrollment token. It will be copied to the next challenge for you.
+No need to save the JWT enrollment token for this exercise. It will be copied to the next challenge for you.

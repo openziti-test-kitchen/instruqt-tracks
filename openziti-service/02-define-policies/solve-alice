@@ -19,15 +19,15 @@ checkZitiResource(){
     fi
 }
 
-checkZitiResource edge-router-policies default \
-|| ziti edge create edge-router-policy "default" \
-  --edge-router-roles '#all' \
-  --identity-roles '#all'
+# checkZitiResource edge-router-policies default \
+# || ziti edge create edge-router-policy "default" \
+#   --edge-router-roles '#all' \
+#   --identity-roles '#all'
 
-checkZitiResource service-edge-router-policies default \
-|| ziti edge create service-edge-router-policy "default" \
-  --edge-router-roles '#all' \
-  --service-roles '#all'
+# checkZitiResource service-edge-router-policies default \
+# || ziti edge create service-edge-router-policy "default" \
+#   --edge-router-roles '#all' \
+#   --service-roles '#all'
 
 checkZitiResource service-policies "greeting-services-providers" \
 || ziti edge create service-policy "greeting-services-providers" Bind \

@@ -7,11 +7,11 @@ teaser: Configure a Service's dial and bind parameters.
 notes:
 - type: text
   contents: |
-    Create two tunneling configs and use them to define an OpenZiti Service.
+    As one of the unofficial greeters, Alice has a "hello" web server to share with new members. Let's create tunneling configs and use them to define an OpenZiti Service for the "hello" server.
 tabs:
-- title: Shell
+- title: Alice
   type: terminal
-  hostname: sandbox
+  hostname: alice
 difficulty: basic
 timelimit: 600
 ---

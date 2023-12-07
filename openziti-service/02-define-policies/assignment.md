@@ -6,39 +6,15 @@ title: Define Policies
 teaser: Create router and service policies.
 notes:
 - type: text
-  contents: Nice! You created an OpenZiti Service with tunneling configs. Now let's
-    authorize separate groups of Identities to dial and bind the Service by defining
-    policies.
+  contents: |
+    Nice! We created an OpenZiti Service with tunneling configs for clients to dial and hosts to bind. Now let's authorize both by defining policies.
 tabs:
-- title: Shell
+- title: Alice
   type: terminal
-  hostname: sandbox
+  hostname: alice
 difficulty: basic
 timelimit: 600
 ---
-
-## Create Router Policies
-
-Router Policies make it possible to optimize data paths across the OpenZiti network by limiting the Routers that are available to certain Identities and Services.
-
-Authorize all Identities and Services to use all Routers.
-
-```bash
-ziti edge create edge-router-policy "default" \
-  --edge-router-roles '#all' \
-  --identity-roles '#all'
-
-ziti edge create service-edge-router-policy "default" \
-  --edge-router-roles '#all' \
-  --service-roles '#all'
-```
-
-## Show Router Policies
-
-```bash
-ziti edge list edge-router-policies
-ziti edge list service-edge-router-policies
-```
 
 ## Create Service Policies
 
